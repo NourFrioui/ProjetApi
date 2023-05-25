@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package auth;
+
+// Définition du message d'authentification
+message AuthRequest {
+  int32 id = 1;
+  string username = 2;
+  string password = 3;
+}
+
+message AuthResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Définition du service d'authentification
+service AuthService {
+  rpc Authenticate(AuthRequest) returns (AuthResponse);
+}
